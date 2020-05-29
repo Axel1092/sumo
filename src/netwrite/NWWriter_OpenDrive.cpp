@@ -463,7 +463,8 @@ NWWriter_OpenDrive::writeInternalEdge(OutputDevice& device, OutputDevice& juncti
         device << "                        <speed sOffset=\"0\" max=\"" << c.vmax << "\"/>\n";
         device << "                    </lane>\n";
 
-        junctionDevice << "            <laneLink from=\"" << fromIndex << "\" to=\"" << toIndex << "\"/>\n";
+        const int toLane = -(parallel.size() - j);
+        junctionDevice << "            <laneLink from=\"" << fromIndex << "\" to=\"" << toLane << "\"/>\n";
         connectionID++;
     }
     device << "                 </right>\n";
